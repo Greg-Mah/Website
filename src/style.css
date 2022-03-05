@@ -1,0 +1,40 @@
+*
+{
+    display:flex;
+    flex-direction:column;
+    box-sizing: border-box;
+}
+style,head
+{
+    display:none
+}
+button
+{
+    text-align: center;
+    vertical-align: middle;
+    align-items: center;
+}
+.NavBar
+{
+    justify-content: space-around;
+    flex-direction: row;
+}
+.Home
+{
+    background-color: rgb(200,200,200);
+    padding: 20px;
+}
+h1
+{
+    text-align: center;
+}
+.NavBar
+{
+    background-color: rgb(150,150,150);
+    padding: 10px;
+}
+a
+{
+    color:rgb(255,255,255);
+    text-decoration: none;
+}
