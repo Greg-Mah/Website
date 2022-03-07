@@ -12,7 +12,7 @@ const ConnectXBoard=(props)=>
     const winNumber=props.winNumber;
     const resetBoard=props.resetBoard;
 
-    const [playerTurn,setPlayerTurn]=useState(getRandom(numPlayers));
+    const [playerTurn,setPlayerTurn]=useState(0);
     const [pieceSize,setPieceSize]=useState(0);
     const [message,setMessage]=useState('Connect X Game');
     const [windowSize,setWindowSize]=useState(
@@ -49,7 +49,9 @@ const ConnectXBoard=(props)=>
 
     useEffect(()=>
     {
-        setMessage(getTurnMessage(playerTurn))
+        const startTurn=getRandom(numPlayers-1);
+        setPlayerTurn(startTurn);
+        setMessage(getTurnMessage(startTurn));
     },[]);
 
     //random generator from min to max value
