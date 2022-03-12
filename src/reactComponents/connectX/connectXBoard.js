@@ -20,6 +20,8 @@ const ConnectXBoard=(props)=>
         innerHeight:window.innerHeight,
         innerWidth:window.innerWidth
     });
+    const [numPlaced,setNumPlaced]=useState(0)
+
 
     useEffect(()=>//listen for window resizing
     {
@@ -47,7 +49,7 @@ const ConnectXBoard=(props)=>
         }
     },[boardHeight,boardWidth,windowSize]);
 
-    useEffect(()=>
+    useEffect(()=>//inital setup
     {
         const startTurn=getRandom(numPlayers-1);
         setPlayerTurn(startTurn);
@@ -57,7 +59,7 @@ const ConnectXBoard=(props)=>
     //random generator from min to max value
     const getRandom=(max,min)=>
     {
-        max=max ?? 0;
+        max=max ?? 0;//set to zero if null
         min=min ?? 0;
         if(max<min)//if max is smaller than min invalid input
         {
@@ -69,7 +71,12 @@ const ConnectXBoard=(props)=>
     //create a turn message for the current player turn
     const getTurnMessage=(playerId)=>
     {
-        return `${allPlayerData[playerId].name?allPlayerData[playerId].name:"Player "+(playerId+1)}'s turn.`;    
+        return `${allPlayerData[playerId]&&allPlayerData[playerId].name?allPlayerData[playerId].name:"Player "+(playerId+1)}'s turn.`;    
+    }
+
+    const tieCheck=()=>
+    {
+        return (boardHeight*boardWidth)<numPlaced;
     }
 
     const pieceDrop=(col)=>//find out where piece will go in column vertically
@@ -100,10 +107,16 @@ const ConnectXBoard=(props)=>
             {
                 const temp=[...gameboard];//rebuild board so react updates it
                 temp[row][col]=playerTurn;
+                setNumPlaced(numPlaced+1);
                 setGameboard(temp);
                 if(pieceCheck([playerTurn],row,col)>=winNumber)
                 {
                     setMessage(`${allPlayerData[playerTurn].name?allPlayerData[playerTurn].name:"Player "+(playerTurn+1)} wins!`);
+                    setPlayerTurn(-1);
+                }
+                else if(tieCheck())
+                {
+                    setMessage(`It is a Tie.`);
                     setPlayerTurn(-1);
                 }
                 else
@@ -224,7 +237,9 @@ const ConnectXBoard=(props)=>
     <button onClick={()=>
     {
         resetBoard();
-        
+        const nextPlayer=getRandom(numPlayers-1);
+        setPlayerTurn(nextPlayer);
+        setMessage(getTurnMessage(nextPlayer));
     }}>Reset Game</button>
     <h2>{message}</h2>
     {

@@ -12,13 +12,13 @@ const ConnectX=()=>
     const [winNumber,setWinNumber]=useState(4);//number in a row needed to win
     const [numPlayers,setNumPlayers]=useState(2);//number of players in the game
     const [allPlayerData,setAllPlayerData]=useState([]);//data for all of the players in a game
-    const [gamePhase,setGamePhase]=useState(0);//current state of the game 0 board setup, 1 player setup, 2 playing the game
+    const [gamePhase,setGamePhase]=useState(2);//current state of the game 0 board setup, 1 player setup, 2 playing the game
 
     const numPhases=3;
 
     useEffect(()=>
     {
-        setAllPlayerData(Array.apply(null,Array(numPlayers)).map(()=>
+        const additionalPlayers=Array.apply(null,Array(numPlayers-2)).map(()=>
         {
             return {
                 name:"",
@@ -31,7 +31,34 @@ const ConnectX=()=>
                 wins:0,
                 level:0
             }
-        }));
+        });
+        setAllPlayerData(
+            [
+                {
+                    name:"",
+                    color:
+                    {
+                        r:255,
+                        g:0,
+                        b:0
+                    },
+                    wins:0,
+                    level:0
+                },
+                {
+                    name:"",
+                    color:
+                    {
+                        r:255,
+                        g:255,
+                        b:0
+                    },
+                    wins:0,
+                    level:0
+                },
+                ...additionalPlayers
+            ]
+        );
     },[numPlayers]);    
 
     useEffect(()=>
