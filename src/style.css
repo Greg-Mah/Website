@@ -3,6 +3,7 @@
     display:flex;
     flex-direction:column;
     box-sizing: border-box;
+    margin:0;
 }
 style,head
 {
@@ -21,8 +22,14 @@ button
 }
 .Home
 {
-    background-color: rgb(200,200,200);
-    padding: 20px;
+    background-color: rgb(225,225,225);
+    height: 100%;
+    padding-bottom: 10%;
+    background: linear-gradient(rgba(225,225,225,1) 90%, rgba(255,255,255,1) 100%)
+}
+.Home h1,.Home h2,.Home h3,.Home p,.Home a
+{
+    margin:10px;
 }
 h1
 {
@@ -35,6 +42,81 @@ h1
 }
 a
 {
-    color:rgb(255,255,255);
+    justify-content: center;
     text-decoration: none;
+    width:fit-content;
 }
+.Button
+{
+    background-color: rgb(150,150,150);
+    color:rgb(255,255,255);
+    padding:20px;
+    text-align: center;
+    border-radius: 40px;
+    width:100%;
+    animation-name: ButtonUnHover;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
+
+.Button:hover
+{
+    animation-name: ButtonHover;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes ButtonHover
+{
+    100%
+    {
+        color:rgb(50,50,50);
+        background-color: rgb(200,200,200);
+        border-radius: 10px;
+    }
+}
+
+@keyframes ButtonUnHover
+{
+    0%
+    {
+        color:rgb(50,50,50);
+        background-color: rgb(200,200,200);
+        border-radius: 10px;
+    }
+    100%
+    {
+
+    }
+}
+
+#ProfileImage
+{
+    width: 10%;
+    float: right;
+    display:block;
+    align-self: flex-end;
+    border:5px inset rgb(150,150,150);
+}
+
+.ImageBox
+{
+    position: relative;
+    z-index: 0;
+}
+
+.BannerFade
+{
+    z-index: 2;
+    position:absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width:100%;
+    background: linear-gradient(180deg,rgba(150,150,150,1) 0%,rgba(255,255,255,0) 5%,rgba(255,255,255,0) 95%,rgba(225,225,225,1) 100%);
+}
+
+
+

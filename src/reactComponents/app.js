@@ -14,10 +14,8 @@ const App=()=>
         <BrowserRouter>
         <NavBar></NavBar>
             <Routes>
-                <Route exact path="/" element={<Home></Home>}>
-                </Route>
-                <Route path="/*" element={<Component404></Component404>}>
-                </Route>
+                <Route exact path="/" element={<Home></Home>}></Route>
+                <Route path="/*" element={<Component404></Component404>}></Route>
                 <Route exact path="/connectx" element={<ConnectX></ConnectX>}></Route>
             </Routes>
         </BrowserRouter>

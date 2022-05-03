@@ -105,6 +105,18 @@ const ConnectX=()=>
             phaseSwitch()
         }
         <div className="PhaseDiv">
+            {gamePhase!==0?<button className="PhaseButton" onClick={()=>
+            {
+                setGamePhase(0);
+            }}>Game Setup</button>:null}
+            {gamePhase!==1?<button className="PhaseButton" onClick={()=>
+            {
+                setGamePhase(1);
+            }}>Player Setup</button>:null}
+            {gamePhase!==2?<button className="PhaseButton" onClick={()=>
+            {
+                setGamePhase(2);
+            }}>Play Game</button>:null}
             <button className="PhaseButton" onClick={()=>
             {
                 setGamePhase((gamePhase+numPhases-1)%numPhases);
