@@ -92,7 +92,7 @@ a
 
 #ProfileImage
 {
-    width: 10%;
+    width: 30%;
     float: right;
     display:block;
     align-self: flex-end;
@@ -118,5 +118,13 @@ a
     background: linear-gradient(180deg,rgba(150,150,150,1) 0%,rgba(255,255,255,0) 5%,rgba(255,255,255,0) 95%,rgba(225,225,225,1) 100%);
 }
 
+.HomeContent
+{
+    width: 50%;
+    align-self: center;
+}
 
-
+.ButtonBox
+{
+    flex-direction: row;
+}
