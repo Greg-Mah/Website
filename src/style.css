@@ -92,11 +92,17 @@ a
 
 #ProfileImage
 {
+    display: inline;
+    position: relative;
     width: 30%;
     float: right;
-    display:block;
-    align-self: flex-end;
     border:5px inset rgb(150,150,150);
+}
+
+#MainText
+{
+    position: relative;
+    flex-direction: row;
 }
 
 .ImageBox

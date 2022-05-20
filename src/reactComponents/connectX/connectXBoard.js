@@ -41,11 +41,11 @@ const ConnectXBoard=(props)=>
         const widthRatio=windowSize.innerWidth/boardWidth;//ratio of screen size to spaces horizontally
         if(heightRatio>=widthRatio)
         {
-            setPieceSize(widthRatio/2);
+            setPieceSize(widthRatio/1.3);
         }
         else
         {
-            setPieceSize(heightRatio/2);
+            setPieceSize(heightRatio/1.3);
         }
     },[boardHeight,boardWidth,windowSize]);
 

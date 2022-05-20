@@ -10,9 +10,9 @@ const Home=()=>
         <div className="HomeContent">
             <h1>Gregory Mah Portfolio</h1>
             <h2>Welcome to my website</h2>
-            <p>
+            <p id="MainText">
                 This is where I will post projects.
-                Last updated: 5/4/22
+                Last updated: 5/20/22    
                 <img id="ProfileImage" src="./files/Profile.jpg"></img>
             </p>
             
